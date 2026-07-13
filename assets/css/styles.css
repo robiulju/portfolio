@@ -219,9 +219,14 @@
   .project-card:hover{ transform:translateY(-6px); }
   .project-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
   .project-icon{ width:44px; height:44px; border-radius:12px; background:var(--grad-soft); display:flex; align-items:center; justify-content:center; color:var(--blue-soft); }
+  .project-icon.has-logo{ padding:3px; overflow:hidden; background:#0b0c12; border:1px solid var(--border); }
+  .project-icon.has-logo-wide{ width:72px; background:#fff; }
+  .project-logo{ width:100%; height:100%; object-fit:contain; border-radius:8px; }
   .project-links{ display:flex; gap:8px; }
   .project-links a{ width:32px; height:32px; border-radius:8px; background:var(--glass); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:all .2s; }
   .project-links a:hover{ color:#fff; border-color:var(--blue); }
+  .store-icon{ width:19px; height:19px; display:block; }
+  .svg-sprite{ position:absolute; width:0; height:0; overflow:hidden; }
   .project-name{ font-size:19px; font-family:var(--font-display); margin-bottom:8px; }
   .project-desc{ color:var(--text-muted); font-size:14px; margin-bottom:16px; flex-grow:1; }
   .project-feats{ list-style:none; display:grid; gap:6px; margin-bottom:18px; }
@@ -289,6 +294,7 @@
   }
   .field input:focus, .field textarea:focus{ outline:none; border-color:var(--blue); }
   .form-msg{ font-size:13px; color:var(--cyan); min-height:18px; }
+  .contact-form button:disabled{ opacity:.6; cursor:wait; }
 
   footer{ border-top:1px solid var(--border); padding:40px 0; }
   .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }

@@ -110,15 +110,36 @@
 
   const form = document.getElementById('contactForm');
   const formMessage = document.getElementById('formMsg');
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async (event) => {
+    if (!config.contactEndpoint) return;
+
     event.preventDefault();
-    const data = new FormData(form);
-    const name = data.get('name');
-    const email = data.get('email');
-    const message = data.get('message');
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\nFrom: ${name} (${email})`);
-    window.location.href = `mailto:robiulislamengg@gmail.com?subject=${subject}&body=${body}`;
-    if (formMessage) formMessage.textContent = 'Opening your email client…';
+    const submitButton = form.querySelector('button[type="submit"]');
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    submitButton?.setAttribute('disabled', '');
+    if (formMessage) formMessage.textContent = 'Sending your message…';
+
+    try {
+      const response = await fetch(config.contactEndpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === 'false' || result.success === false) {
+        throw new Error(result.message || 'The message could not be sent.');
+      }
+
+      form.reset();
+      if (formMessage) formMessage.textContent = 'Message sent successfully. I’ll get back to you soon.';
+    } catch (error) {
+      if (formMessage) formMessage.textContent = 'Message failed to send. Please email me directly instead.';
+    } finally {
+      submitButton?.removeAttribute('disabled');
+    }
   });
 })();

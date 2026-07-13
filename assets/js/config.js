@@ -7,4 +7,5 @@
  */
 window.PORTFOLIO_CONFIG = Object.freeze({
   resumeUrl: 'https://drive.google.com/file/d/1Lvofii26SWCIQHaBHUbOb3XPGeNtUilb/view?usp=sharing',
+  contactEndpoint: 'https://formsubmit.co/ajax/robiulislamengg@gmail.com',
 });

@@ -34,6 +34,13 @@ window.PORTFOLIO_CONFIG = Object.freeze({
 
 The download button stays visibly disabled until a URL is configured.
 
+## Contact form
+
+The contact form submits through FormSubmit using the endpoint configured in
+`assets/js/config.js`. The first submission triggers a one-time activation email
+to the destination inbox. Confirm that email before the form can deliver visitor
+messages. If JavaScript is unavailable, the form falls back to a normal POST.
+
 ## Run locally
 
 This site does not require dependencies or a build step. Open `index.html`
