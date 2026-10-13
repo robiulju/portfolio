@@ -6,6 +6,7 @@
  * touching application behavior.
  */
 window.PORTFOLIO_CONFIG = Object.freeze({
-  resumeUrl: 'https://drive.google.com/file/d/1Lvofii26SWCIQHaBHUbOb3XPGeNtUilb/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/11V1UBHNzb4CddqWXYBM_WtObE8cFCpCA/view?usp=sharing',
+  
   contactEndpoint: 'https://formsubmit.co/ajax/robiulislamengg@gmail.com',
 });
